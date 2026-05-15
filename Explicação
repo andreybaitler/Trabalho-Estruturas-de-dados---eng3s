@@ -1,0 +1,35 @@
+🔹 Explicação
+
+A sequência de Fibonacci é definida de forma que cada termo é a soma dos dois anteriores. Essa definição é naturalmente recursiva, por isso a implementação segue essa ideia diretamente.
+
+Caso base: quando n é 0 ou 1, o valor já é conhecido, então a função retorna diretamente sem continuar a recursão.
+Redução do problema: para calcular fib(n), a função chama ela mesma para fib(n-1) e fib(n-2), dividindo o problema em dois menores.
+
+O problema dessa abordagem é que ela recalcula vários valores repetidamente. Por exemplo, ao calcular fib(5), o valor de fib(3) é calculado mais de uma vez. Isso faz com que o número de chamadas cresça muito rápido, tornando o algoritmo ineficiente.
+
+🔹 Explicação
+
+Essa versão resolve o principal problema da anterior: o excesso de cálculos repetidos.
+
+Caso base: continua sendo n == 0 e n == 1, igual à versão ingênua.
+Redução do problema: ainda usa recursão com fib(n-1) e fib(n-2), ou seja, a lógica principal não muda.
+
+A diferença está no uso de um vetor chamado cache, que armazena resultados já calculados.
+
+Antes de calcular um valor, o programa verifica se ele já foi armazenado. Se sim, ele reutiliza esse valor em vez de recalcular.
+
+Isso reduz drasticamente o número de chamadas recursivas, fazendo com que o algoritmo passe de um crescimento exponencial para linear. Ou seja, ele fica muito mais eficiente mesmo para valores grandes de n.
+
+🔹 Explicação
+
+O problema das Torres de Hanoi consiste em mover discos de uma haste para outra, seguindo regras específicas (não colocar discos maiores sobre menores).
+
+Caso base: quando há apenas 1 disco, basta movê-lo diretamente da origem para o destino.
+Redução do problema: para mover n discos:
+Move n-1 discos da origem para o auxiliar
+Move o maior disco para o destino
+Move os n-1 discos do auxiliar para o destino
+
+Esse processo é naturalmente recursivo, pois o problema de mover n discos depende de resolver o mesmo problema para n-1.
+
+O número total de movimentos cresce rapidamente e segue a fórmula 2^n - 1, o que mostra que o problema também tem crescimento exponencial.
